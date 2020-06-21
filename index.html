@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video Tutorials</title>
+  <style>
+      body{
+          background-color: #e9e7d9;
+      }
+
+      .wrap {
+      width: 100% !important;
+      margin: 0 auto !important;
+      margin-bottom: 1rem !important;
+      padding: 0px;
+      color: #44d05b;
+      font-family: Bahnschrift;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    input {
+      display: none;
+    }
+
+    label {
+      display: flex;
+      width: 100%;
+      border-radius: 5px;
+      height: 80px;
+      cursor: pointer;
+
+      user-select: none;
+      border: none;
+    }
+
+
+    .cross {
+      margin-right: 15px;
+      margin-top: 10px;
+    }
+
+    .cross:before,
+    .cross:after {
+      content: "";
+      border-top: 2px solid #1d75b3;
+      width: 17px;
+      display: block;
+      margin-top: 18px;
+      transition: 0.3s;
+    }
+
+    .cross:after {
+      transform: rotate(90deg);
+      margin-top: -2px;
+    }
+
+    .content {
+
+      box-sizing: border-box;
+      font-size: 1.5rem;
+      margin: 10px 10px;
+      max-height: 0;
+      overflow-y: scroll;
+      transition: max-height, 0.5s;
+      -webkit-box-shadow: 39px 29px 44px -6px rgb(120, 131, 136);
+      -moz-box-shadow: 39px 29px 44px -6px rgb(120, 131, 136);
+      box-shadow: 39px 29px 44px -6px rgb(120, 131, 136);
+    }
+
+
+    input:checked~.content {
+        max-height: 400px;
+        align-content: center;
+     align-items: center;
+        transition: max-height, 1s;
+
+    }
+
+    input:checked~label .cross:before {
+      transform: rotate(180deg);
+    }
+
+    input:checked~label .cross:after {
+      transform: rotate(0deg);
+    }
+
+    .questions {
+      margin-top: 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height, 0.5s;
+    }
+
+    .questions label {
+      border: none;
+      box-shadow: none;
+      margin: 0;
+    }
+
+    input:checked~.questions {
+      max-height: 400px;
+      border-bottom: 2px solid #3e474f;
+      transition: 1s;
+    }
+
+    h2 {
+        font-size: 23px;
+      text-align: start;
+        font-family: sans-serif;
+        text-align: center;
+
+    }
+      .row-vt {
+
+          align-items: center;
+    background-color: #cdd6e7;
+          display: flex;
+  width:100% ;
+
+
+
+      color: #000000;
+    }
+
+      .column-vt {
+
+          width:500px;
+      height: 300px;
+      /*position: relative;*/
+      /*padding: 5px;*/
+      border: 6px solid #171817;
+    align-content: center;
+    }
+      .column-vt iframe {
+          width: 500px;
+          height: 300px;
+          /*position: relative;*/
+      }
+      .column{
+
+          padding-left: 50px;
+
+
+
+      }
+
+      @media screen and (min-width: 600px)  {
+
+          .topic{
+             font-weight: bold;
+              color: #3e474f;
+          }
+          label div:first-child {
+              width: 100%;
+              line-height: 20px;
+              margin-left: 10px;
+              color: #334d83;
+              font-size: 22px;
+              font-family: sans-serif;
+          }
+
+          .subtitle{
+
+              font-size: 19px;
+              color: #c5d2de;
+          }
+
+          .men {
+
+              margin-bottom: 6px;
+              font-size: 1.3rem;
+              padding-top: 10px;
+              width: 100%;
+              position: -webkit-sticky;
+              position: sticky; top: 0px;
+          }
+
+          .men, ul {
+              list-style: none;
+              left: 0px;
+
+          }
+
+          .men,
+          ul,
+          li {
+              float: left;
+              margin: 3px;
+          }
+          .men,
+          ul,
+          li,
+          a {
+              font-weight: bold;
+
+          }
+
+          .nic {
+              color: #ffffff;
+              font-weight: bold;
+              height: 40px;
+              width: 130px;
+              background: rgb(214, 139, 26);
+              font-family: sans-serif;
+              border-radius: 3px ;
+              font-size: 20px;
+              border: 3px solid rgb(214, 139, 26);
+
+
+          }
+
+      }
+
+      @media screen and (max-width: 600px) {
+
+
+          .topic{
+              font-weight: bold;
+              color: #3e474f;
+              font-size: 16px;
+          }
+
+          label div:first-child {
+              width: 100%;
+              line-height: 20px;
+              margin-left: 10px;
+              font-weight: bold;
+              color: #334d83;
+              font-size: 15px;
+
+          }
+
+
+          .men {
+              margin-bottom: 6rem;
+              font-size: 1.3rem;
+              padding-top: 10px;
+              position: -webkit-sticky;
+              position: sticky; top: 0px
+          }
+
+          .men,
+          ul {
+              list-style: none;
+              display: flex;
+              justify-items: center;
+          }
+
+          .men,
+          ul,
+          li {
+
+              margin: 3px;
+          }
+          .men,
+          ul,
+          li,
+          a {
+              font-weight: bold;
+               /*background: rgb(172, 216, 218);*/
+          }
+
+          .nic {
+
+
+              padding-left: 3px;
+              max-height: 40px;
+              max-width: 130px;
+              color: #ffffff;
+              font-weight: bold;
+              background: rgb(214, 139, 26);
+              font-family: sans-serif;
+              border-radius: 3px ;
+              font-size: 12px;
+              border: 3px solid rgb(214, 139, 26);
+              justify-content: start ;
+
+          }
+
+          .row-vt {
+              align-items: center;
+              display: block;
+              width:100% ;
+              color: black;
+          }
+
+          .column-vt {
+              max-width:100%;
+              max-height: 290px;
+              border: 6px solid #171817;
+              align-content: center;
+          }
+          .column-vt iframe {
+              width: 100%;
+
+              /*position: relative;*/
+          }
+          .column{
+              padding-left: 50px;
+          }
+          .subtitle{
+              color: #0f0f16;
+              font-size: 15px;
+          }
+
+      }
+
+
+      .wrapper-1 {
+      padding-top: 20px;
+      border-radius: 5px;
+      -webkit-box-shadow: 39px 29px 44px -6px rgba(99, 112, 106, 0.35);
+      -moz-box-shadow: 39px 29px 44px -6px rgb(99, 112, 106, 0.349);
+      box-shadow: 39px 29px 44px -6px rgb(99, 112, 106, 0.349);
+    }
+
+
+      .subtitle{
+
+          color: #1f292d;
+
+          font-family: sans-serif;
+          font-weight: lighter;
+      }
+      .title{
+        font-family: sans-serif;
+          text-align: center;
+          font-size: 40px;
+          font-weight: bold;
+          color: #539f98;
+          padding-bottom: 50px;
+          padding-top: 30px;
+      }
+
+
+  </style>
+</head>
+
+<body >
+
+    <div class="title" id="up">
+        ConnectYu Video Tutorials
+    </div>
+
+
+        <div class="men" >
+            <div>
+                <ul>
+                    <li>
+                        <a href=" https://www.connectyu.com/">
+                            <button class="nic"  >Home</button></a>
+                    </li>
+                    <li>
+                        <a href="#web">
+                            <button class="nic"  >Web videos</button></a>
+                    </li>
+                    <li>
+                        <a href="#mobile-web">
+                            <button class="nic" >Mobile Web</button>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#mobile">
+                            <button class="nic"  >Mobile</button>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+      </div>
+      <br />
+      <br />
+
+
+    <!-- FAQs-1 -->
+    <div class="wrapper-1">
+      <h2>Web video tutorials</h2>
+
+      <div class="wrap-1 wrap">
+        <input type="radio" id="tab-1" name="tabs" />
+        <label for="tab-1">
+          <div class="topics"> <hr>How to change or update your profile picture or cover art on ConnectYu <hr> </div>
+          <div class="cross"></div>
+        </label>
+        <div class="content">
+          <div class="row-vt">
+            <div class="column-vt">
+              <iframe
+
+                      src="https://www.youtube.com/embed/FqXPQU6pHrU"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen>
+
+              </iframe>
+            </div>
+              <div class="column">
+                      <h6 class="subtitle">
+                        <p  class="topic">  How to change or update your profile picture or cover art on ConnectYu</p>
+
+                          ConnectYu is a social networking platform that empowers Cameroonians and Africans by
+                          helping them make important strategic connections that will take them from
+                          the life they have to the life
+                      </h6>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrap-2 wrap">
+        <input type="radio" id="tab-2" name="tabs" />
+        <label for="tab-2">
+          <div > <hr>How to create and share a video post on ConnectYu<hr></div>
+          <div class="cross"></div>
+        </label>
+        <div class="content">
+          <div class="row-vt">
+            <div class="column-vt">
+              <iframe   src="https://www.youtube.com/embed/i739gF7_t9s"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen>
+
+              </iframe>
+            </div>
+            <div class=" column">
+              <h6 class="subtitle">
+                  <p class="topic"> How to create and share a video post on ConnectYu </p>
+
+                  ConnectYu is a social networking platform that empowers Cameroonians and Africans by
+                  helping them make important strategic connections that will take them from
+                  the life they have to the life
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrap-3 wrap">
+        <input type="radio" id="tab-3" name="tabs" />
+        <label for="tab-3">
+          <div><hr>How to share your post to groups and pages on ConnectYu or to other platforms<hr></div>
+          <div class="cross"></div>
+        </label>
+        <div class="content">
+          <div class="row-vt">
+            <div class="column-vt">
+              <iframe  src="https://www.youtube.com/embed/Uvu7pDiRH9c"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen>
+
+              </iframe>
+            </div>
+            <div class="column">
+              <h6 class="subtitle">
+                  <p class="topic"> How to share your post to groups and pages on ConnectYu or to other platforms </p>
+
+                ConnectYu is a social networking platform that empowers Cameroonians and Africans by helping t
+                hem make important strategic connections that will take them from the life they have to the life
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <div class="wrap-4 wrap">
+        <input type="radio" id="tab-4" name="tabs" />
+        <label for="tab-4">
+          <div><hr>How to create a page on ConnectYu <hr></div>
+          <div class="cross"></div>
+        </label>
+        <div class="content">
+          <div class="row-vt">
+            <div class="column-vt">
+                <iframe  src="https://www.youtube.com/embed/-KNuprAakfA" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                         allowfullscreen>
+
+                </iframe>
+            </div>
+            <div class="column">
+              <h6 class="subtitle">
+                  <p class="topic">How to create a page on ConnectYu </p>
+
+                  ConnectYu is a social networking platform that empowers Cameroonians and Africans by helping them make
+                  important strategic connections that will take them from the life they have to the life
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="wrap-5 wrap">
+        <input type="radio" id="tab-5" name="tabs" />
+        <label for="tab-5">
+          <div><hr>How to manage your notifications on ConnetYu<hr></div>
+          <div class="cross"></div>
+        </label>
+        <div class="content">
+          <div class="row-vt">
+            <div class="column-vt">
+                <iframe  src="https://www.youtube.com/embed/AxuUqx7eSxc" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                         allowfullscreen>
+
+                </iframe>
+            </div>
+            <div class="column">
+              <h6 class="subtitle">
+                  <p class="topic"> How to manage your notifications on ConnetYu</p>
+
+                  ConnectYu is a social networking platform that empowers Cameroonians and Africans by helping them make important
+                  strategic connections that will take them from the life they have to the life
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  <div class="wrap-6 wrap">
+        <input type="radio" id="tab-6" name="tabs" />
+        <label for="tab-6">
+          <div><hr>How to secure your ConnectYu account from hackers<hr></div>
+          <div class="cross"></div>
+        </label>
+        <div class="content">
+          <div class="row-vt">
+            <div class="column-vt">
+                <iframe  src="https://www.youtube.com/embed/Xgz_H48ekb0" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                         allowfullscreen>
+
+                </iframe>
+            </div>
+            <div class="column">
+              <h6 class="subtitle">
+                  <p class="topic">    How to secure your ConnectYu account from hackers</p>
+
+                  ConnectYu is a social networking platform that empowers Cameroonians and Africans by helping them make important
+                  strategic connections that will take them from the life they have to the life
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  <div class="wrap-7 wrap">
+        <input type="radio" id="tab-7" name="tabs" />
+        <label for="tab-7">
+          <div><hr>How to find and follow friends on ConnectYu<hr></div>
+          <div class="cross"></div>
+        </label>
+        <div class="content">
+          <div class="row-vt">
+            <div class="column-vt">
+                <iframe  src="https://www.youtube.com/embed/" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                         allowfullscreen>
+
+                </iframe>
+            </div>
+            <div class="column">
+              <h6 class="subtitle">
+                  <p class="topic">How to find and follow friends on ConnectYu </p>
+
+                  ConnectYu is a social networking platform that empowers Cameroonians and Africans by helping them make important
+                  strategic connections that will take them from the life they have to the life
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQs-2 -->
+    <div class="wrapper-1 wrapper-2">
+      <h2 id="mobile-web">Web-Mobile Video Tutorials</h2>
+
+      <div class="wrap-2-1 wrap">
+        <input type="radio" id="tab-2-1" name="tabs" />
+        <label for="tab-2-1">
+          <div>
+           Coming soon
+          </div>
+          <div class="cross"></div>
+        </label>
+        <div class="content">
+            Coming soon
+        </div>
+      </div>
+
+    <!-- FAQs-3 -->
+
+  </div>
+  <div class="wrapper-1 wrapper-3">
+      <h2 id="mobile">Mobile Video Tutorials</h2>
+      <div class="wrap-3-1 wrap">
+          <input type="radio" id="tab-3-1" name="tabs" />
+          <label for="tab-3-1">
+              <div>Coming soon</div>
+              <div class="cross"></div>
+          </label>
+          <div class="content">
+              Coming soon
+          </div>
+      </div>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+
+</body>
+
+</html>
